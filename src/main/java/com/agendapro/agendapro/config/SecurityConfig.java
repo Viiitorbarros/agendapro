@@ -15,7 +15,7 @@ public class SecurityConfig {
                 .headers(headers -> headers.frameOptions(frameOptions -> frameOptions.disable())) // PERMITE FRAMES, NECESSÁRIO PARA O H2 CONSOLE
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/h2-console/**").permitAll() // PERMITE ACESSO AO H2 CONSOLE
-                        .requestMatchers("/alguma-outra-url-publica").permitAll()
+                        .requestMatchers("/agendapro/agendamento/**").permitAll()
                         .anyRequest().authenticated() // Exige autenticação para todo o resto
                 );
         // ... suas outras configurações de login, etc.
