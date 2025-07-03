@@ -5,10 +5,7 @@ package com.agendapro.agendapro.controller;
 import com.agendapro.agendapro.model.Agendamento;
 import com.agendapro.agendapro.service.AgendamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,6 +19,16 @@ public class AgendamentoController {
     @GetMapping
     public List<Agendamento> findAll() {
         return agendamentoService.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public Agendamento findById(@PathVariable Long id) {
+      return  agendamentoService.findById(id);
+    }
+
+    @PostMapping
+    public Agendamento createAgendamento(@RequestBody Agendamento agendamento){
+        return agendamentoService.save(agendamento);
     }
 
 
