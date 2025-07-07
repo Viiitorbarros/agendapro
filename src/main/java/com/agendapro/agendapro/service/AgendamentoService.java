@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.PrintStream;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AgendamentoService {
@@ -15,7 +17,7 @@ public class AgendamentoService {
     private AgendamentoRepository agendamentoRepository;
 
     @Transactional(readOnly = true)
-    public List<Agendamento>findAll() {
+    public List<Agendamento> findAll() {
         return agendamentoRepository.findAll();
     }
 
@@ -25,9 +27,14 @@ public class AgendamentoService {
     }
 
     public Agendamento save(Agendamento agendamento) {
+        Optional<Agendamento> agendamentoexistente = agendamentoRepository.findByDataHora(agendamento.getDataHora());
+        if (agendamentoexistente.isPresent()) {
+            throw new RuntimeException("Já existe um agendamento para esta data e hora.");  // ou lance uma exceção, ou retorne uma resposta de erro
+        }
+        if (agendamento.getNome() == null || agendamento.getNome().isEmpty()) {
+            throw new RuntimeException("O nome do aluno é obrigatório.");
+        }
+
         return agendamentoRepository.save(agendamento);
     }
-
-
-
 }

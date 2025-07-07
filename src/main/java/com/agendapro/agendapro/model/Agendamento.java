@@ -13,6 +13,7 @@ public class Agendamento {
     private Long id;
     private String nome;
     private String telefone;
+    @Column(unique = true)
     private LocalDateTime dataHora;
 
 
