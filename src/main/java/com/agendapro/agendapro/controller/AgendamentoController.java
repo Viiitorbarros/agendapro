@@ -31,5 +31,8 @@ public class AgendamentoController {
         return agendamentoService.save(agendamento);
     }
 
-
+    @PutMapping("/{id}")
+    public Agendamento updateAgendamento (@PathVariable long id,@RequestBody Agendamento agendamento){
+        return agendamentoService.update(id ,agendamento);
+    }
 }

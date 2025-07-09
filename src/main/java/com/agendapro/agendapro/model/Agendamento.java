@@ -1,6 +1,7 @@
 package com.agendapro.agendapro.model;
 
 import jakarta.persistence.*;
+import org.antlr.v4.runtime.misc.NotNull;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -11,9 +12,12 @@ public class Agendamento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull
     private String nome;
+    @NotNull
     private String telefone;
     @Column(unique = true)
+
     private LocalDateTime dataHora;
 
 
