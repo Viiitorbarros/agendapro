@@ -60,6 +60,18 @@ public class AgendamentoService {
 
     }
 
+    @Transactional
+    public void  delete (Long id){
+        Optional<Agendamento> agendamentoExistenteOpt = agendamentoRepository.findById(id);
+
+        if (agendamentoExistenteOpt.isPresent()){
+            agendamentoRepository.deleteById(id);
+        }else {
+            throw new RuntimeException("Agendamento nao encontrado");
+        }
+
+    }
+
 
 
 }

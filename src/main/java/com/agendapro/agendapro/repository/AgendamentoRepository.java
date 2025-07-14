@@ -12,4 +12,5 @@ public interface AgendamentoRepository extends JpaRepository<Agendamento, Long> 
 
     Optional<Agendamento> findByDataHora(LocalDateTime dataHora);
 
+    //Optional<Agendamento> deleteAgendamentoById(Long id);
 }

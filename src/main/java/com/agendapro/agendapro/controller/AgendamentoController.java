@@ -35,4 +35,9 @@ public class AgendamentoController {
     public Agendamento updateAgendamento (@PathVariable long id,@RequestBody Agendamento agendamento){
         return agendamentoService.update(id ,agendamento);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteAgendamento(@PathVariable long id){
+        agendamentoService.delete(id);
+    }
 }
