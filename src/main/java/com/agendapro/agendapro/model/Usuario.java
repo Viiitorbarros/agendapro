@@ -2,7 +2,6 @@ package com.agendapro.agendapro.model;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
 import java.util.Objects;
 
 
@@ -12,8 +11,7 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String email;
-    @Column(length = 6)
+    private String userName;
     private String senha;
     private String role;
 
@@ -23,9 +21,9 @@ public class Usuario {
 
     }
 
-    public Usuario(Long id, String email, String senha, String role) {
+    public Usuario(Long id, String userName, String senha, String role) {
         this.id = id;
-        this.email = email;
+        this.userName = userName;
         this.senha = senha;
         this.role = role;
     }
@@ -39,12 +37,12 @@ public class Usuario {
         this.id = id;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUserName(String email) {
+        this.userName = email;
     }
 
     public String getSenha() {
