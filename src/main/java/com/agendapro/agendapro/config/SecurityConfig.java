@@ -78,7 +78,7 @@ public class SecurityConfig {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
                         // Altere o "*" para o endereço exato do seu Live Server
-                        .allowedOrigins("https://agendapro.fly.dev")
+                        .allowedOrigins("https://agendapro-frontend.onrender.com")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
