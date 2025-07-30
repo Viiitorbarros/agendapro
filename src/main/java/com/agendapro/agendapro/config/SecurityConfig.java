@@ -32,7 +32,7 @@ public class SecurityConfig {
                         // Regras para Agendamento
 
 
-                        // PERMITE A PERGUNTA DE "PREFLIGHT" DO CORS
+                        // PERMITE A PERGUNTA DO CORS
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 
                         .requestMatchers(HttpMethod.GET, "/agendapro/agendamento/**").hasAnyRole("ADMIN", "PROFESSOR")
@@ -42,7 +42,7 @@ public class SecurityConfig {
                         // Todas as outras requisições precisam de autenticação
                         .anyRequest().authenticated()
                 )
-                // Usaremos autenticação HTTP Basic por enquanto;
+                //  autenticação HTTP Basic por enquanto;
                 .httpBasic(Customizer.withDefaults());
 
         return http.build();
@@ -55,7 +55,7 @@ public class SecurityConfig {
             if (usuarioRepository.findByUserName("admin").isEmpty()) {
                 Usuario admin = new Usuario();
                 admin.setUserName("admin");
-                admin.setSenha(passwordEncoder.encode("admin123")); // Senha será codificada
+                admin.setSenha(passwordEncoder.encode("academia123")); // Senha será codificada
                 admin.setRole("ADMIN");
                 usuarioRepository.save(admin);
             }
@@ -64,7 +64,7 @@ public class SecurityConfig {
             if (usuarioRepository.findByUserName("professor").isEmpty()) {
                 Usuario professor = new Usuario();
                 professor.setUserName("professor");
-                professor.setSenha(passwordEncoder.encode("prof123")); // Senha será codificada
+                professor.setSenha(passwordEncoder.encode("academia123")); // Senha será codificada
                 professor.setRole("PROFESSOR");
                 usuarioRepository.save(professor);
             }

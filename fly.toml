@@ -1,8 +1,7 @@
 # Define o nome da sua aplicação no Fly.io
 app = "agendapro"
 
-# Define a porta interna em que a sua aplicação Java/Spring Boot está a rodar
-# O Fly.io irá direcionar o tráfego externo para esta porta
+
 [http_service]
 internal_port = 8080
 force_https = true

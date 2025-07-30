@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class UsuarioService {
 
-    @Autowired // Adicione a injeção
+    @Autowired // Adiciona a injeção
     private UsuarioRepository usuarioRepository;
 
-    @Autowired // Injete o PasswordEncoder
+    @Autowired // Injeta o PasswordEncoder
     private PasswordEncoder passwordEncoder;
 
     public Usuario save(Usuario usuario) {
